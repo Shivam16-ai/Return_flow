@@ -1,0 +1,24 @@
+{
+  "modelName": "ReturnFlowPricingHeuristic",
+  "version": "1.2.0",
+  "updatedAt": "2026-08-20T10:00:00Z",
+  "taskType": "Deterministic price estimation & match scoring",
+  "methodology": "Rule-based linear pricing model calibrated against published Indian truck market rates (₹/ton-km) and backhaul discount benchmarks. Not a trained ML model — coefficients are hand-tuned domain parameters, fully auditable.",
+  "inputs": [
+    "distanceKm",
+    "weightKg",
+    "corridorDemandMultiplier",
+    "isReturnTrip"
+  ],
+  "parameters": {
+    "baseRatePerKm": 17.85,
+    "weightCoeff": 0.42,
+    "demandCoeff": 1250.0,
+    "weekendCoeff": 350.0,
+    "intercept": 450.0
+  },
+  "expectedAccuracy": {
+    "note": "Indicative tolerance vs spot-market quotes on seeded corridors; not a statistical metric.",
+    "tolerancePercent": 4.5
+  }
+}
